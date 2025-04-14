@@ -1,0 +1,91 @@
+
+:root {
+/* ----------------------------------------- TIPOGRAFIA --------------------------------------- */
+
+  --font-display: 'Sora', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --font-body: 'Roboto Flex', sans-serif;
+
+  /* Display (Sora) */
+  --text-display-large: 72px;
+  --text-display-medium: 40px;
+  --text-display-small: 32px;
+  --line-display: 130%;
+  --weight-display-large: 800; /* ExtraBold */
+  --weight-display-medium: 800; /* ExtraBold */
+  --weight-display-small: 700; /* Bold */
+
+  /* Overline (Roboto Mono) */
+  --text-overline: 16px;
+  --line-overline: 150%;
+  --weight-overline: 700; /* Bold */
+
+  /* Paragraph & Labels (Roboto Flex) */
+  --text-paragraph-large: 16px;
+  --text-paragraph-medium: 14px;
+  --text-paragraph-small: 12px;
+
+  --text-label-medium: 20px;
+  --text-label-small: 16px;
+
+  --line-body: 150%;
+  --weight-paragraph: 500; /* Medium */
+  --weight-label: 700; /* Bold */
+
+    /* ----------------------------------------- CORES --------------------------------------- */
+    --content-primary: #ffffff;
+    --content-secondary: #c7c9cc;
+    --content-tertiary: #d9d9d9;
+    --content-brand: #c58de7;
+    --color-inverse: #030203;
+  
+    /* Background Colors */
+    --background-primary: #020202;
+    --background-secondary: #111012;
+    --background-tertiary: #24222e;
+    --background-brand: #c58de7;
+    --background-gray: #3d3d3d;
+  
+    /* Accent Colors */
+    --accent-pink: #d586e0;
+    --accent-blue: #91a1fa;
+    --accent-green: #77c0a;
+    --accent-lime: #d1dc97;
+    --accent-red: #e9a9b3;
+  
+    /* Gradient Colors */
+    --gradient-border: linear-gradient(
+      90deg,
+      #77c0af 0%,
+      #d1dc97 14.84%,
+      #e9a9b3 32.15%,
+      #d586e0 65.79%,
+      #91a1fa 84.58%
+    );
+  
+    --gradient-background: linear-gradient(
+      90deg,
+      #d586e0 0%,
+      #91a1fa 98.93%
+    );
+  
+    --gradient-content: linear-gradient(
+      90deg,
+      #c7c9cc 0%,
+      #3d3d3d 100%
+    );
+  }
+
+
+  body {
+    background-color: var(--background-primary);
+    background-image: url('./assets/bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--content-primary); /* opcional: já define cor padrão do texto */
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+  }
+  

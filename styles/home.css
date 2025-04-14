@@ -1,0 +1,211 @@
+/* ---------------------------------------------------------- */
+/* Estilos base: Mobile First (iPhone 15 ~390px) */
+/* ---------------------------------------------------------- */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 3rem;
+    max-width: 100%;
+  }
+  
+  .logo {
+    width: 48px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: var(--text-overline);
+    font-weight: var(--weight-overline);
+    line-height: var(--line-overline);
+    text-transform: uppercase;
+    color: var(--content-secondary);
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: var(--text-display-medium);
+    font-weight: var(--weight-display-medium);
+    line-height: var(--line-display);
+    text-transform: uppercase;
+    color: var(--content-primary);
+    margin-bottom: 2rem;
+  }
+  
+  .faq {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .faq-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: var(--content-primary);
+  }
+  
+  .faq-item strong {
+    color: var(--content-brand);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: var(--text-paragraph-large);
+  }
+  
+  .faq-item p {
+    color: var(--content-secondary);
+    font-size: var(--text-paragraph-medium);
+    line-height: var(--line-body);
+  }
+  
+  /* -------------------------------------- */
+  /* Formulário                             */
+  /* -------------------------------------- */
+  
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .form-header h2 {
+    font-size: var(--text-label-medium);
+    font-weight: var(--weight-label);
+    color: var(--content-primary);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-header p {
+    font-size: var(--text-paragraph-medium);
+    line-height: var(--line-body);
+    color: var(--content-secondary);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .input-group label {
+    font-size: var(--text-label-small);
+    font-weight: var(--weight-label);
+    color: var(--content-secondary);
+    text-transform: uppercase;
+  }
+  
+  .input-group input {
+    background-color: var(--background-tertiary);
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--content-primary);
+  }
+  
+  .input-group input:focus {
+    outline: 2px solid var(--content-brand);
+  }
+  
+  /* Toggle: Não repetir número */
+  .toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-paragraph-small);
+    color: var(--content-primary);
+  }
+  
+  .toggle input[type="checkbox"] {
+    accent-color: var(--content-brand);
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Botão de Sortear */
+  .btn-sort {
+    background-color: var(--background-secondary);
+    border: none;
+    color: var(--content-primary);
+    font-size: var(--text-label-medium);
+    font-weight: var(--weight-label);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-sort:hover {
+    background-color: var(--background-tertiary);
+  }
+  
+  .btn-sort img {
+    width: 20px;
+    height: auto;
+  }
+  
+  /* ---------------------------------------------------------- */
+  /* Desktop (a partir de 1024px) */
+  /* ---------------------------------------------------------- */
+  @media (min-width: 1024px) {
+    .container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 4rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+  
+    .intro {
+      flex: 1;
+      padding-right: 3rem;
+    }
+  
+    .form-section {
+      flex: 1;
+      max-width: 480px;
+    }
+  
+    .title {
+      font-size: var(--text-display-large);
+      font-weight: var(--weight-display-large);
+    }
+  
+    .form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    .input-group {
+      flex: 1 1 30%;
+    }
+  
+    .toggle {
+      flex-basis: 100%;
+      margin-top: 1rem;
+    }
+  
+    .btn-sort {
+      flex-basis: 100%;
+      margin-top: 1rem;
+    }
+  }
+  
