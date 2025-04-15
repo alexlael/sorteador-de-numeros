@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500;8..144,700&family=Roboto+Mono:wght@700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
-    <title>Sorteador de Numeros</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500;8..144,700&family=Roboto+Mono:wght@700&family=Sora:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Sorteador de Números</title>
+  </head>
+  <body>
     <main class="container">
       <!-- Branding / Apresentação -->
       <section class="intro">
@@ -55,49 +58,42 @@
         <div class="form-header">
           <h2>QUERO SORTEAR:</h2>
           <p>
-            Defina o intervalo e a quantidade de números, clique em
-            "Sortear" e veja os resultados na tela. É rápido e fácil!
+            Defina o intervalo e a quantidade de números, clique em "Sortear" e
+            veja os resultados na tela. É rápido e fácil!
           </p>
         </div>
 
         <form id="form-sort" class="form">
-          <div class="input-group">
-            <label for="amount">NÚMEROS</label>
-            <input
-              type="number"
-              id="amount"
-              name="amount"
-              min="1"
-              value="2"
-              required
-            />
-          </div>
+          <div class="form-inputs">
+            <div class="input-group">
+              <label for="amount">NÚMEROS</label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                min="1"
+                value="2"
+                required
+              />
+            </div>
 
-          <div class="input-group">
-            <label for="min">DE</label>
-            <input
-              type="number"
-              id="min"
-              name="min"
-              value="1"
-              required
-            />
-          </div>
+            <div class="input-group">
+              <label for="min">DE</label>
+              <input type="number" id="min" name="min" value="1" required />
+            </div>
 
-          <div class="input-group">
-            <label for="max">DE</label>
-            <input
-              type="number"
-              id="max"
-              name="max"
-              value="100"
-              required
-            />
+            <div class="input-group">
+              <label for="max">ATÉ</label>
+              <input type="number" id="max" name="max" value="100" required />
+            </div>
           </div>
 
           <div class="toggle">
-            <input type="checkbox" id="no-repeat" name="no-repeat" />
-            <label for="no-repeat">Não repetir número</label>
+            <label for="no-repeat" class="toggle-label">
+              <input type="checkbox" id="no-repeat" name="no-repeat" />
+              <span class="toggle-icon" aria-hidden="true"></span>
+              Não repetir número
+            </label>
           </div>
 
           <button type="submit" class="btn-sort">
