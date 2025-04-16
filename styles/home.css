@@ -5,75 +5,77 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 2.75rem 2.1875rem; /* top/bottom 44px, sides 35px */
+  padding: 2.75rem 2.1875rem;
   gap: 2.5rem;
   max-width: 100%;
-  align-items: stretch;
 }
 
-/* SECTION 1: Logo + Título */
-.section-title {
+.main-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 2.5rem;
+}
+
+/* Section Título */
+.section-title {
   text-align: center;
-  gap: 1rem;
 }
 
 .logo {
   width: 48px;
-  height: auto;
+  margin: 0 auto 1rem;
 }
 
 .subtitle {
-  font-size: var(--text-overline);
-  font-weight: var(--weight-overline);
-  line-height: var(--line-overline);
-  text-transform: uppercase;
-  color: var(--content-secondary);
   font-family: var(--font-mono);
+  font-size: var(--text-overline);
+  color: var(--content-secondary);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
 }
 
 .title {
+  font-family: var(--font-display);
   font-size: var(--text-display-medium);
   font-weight: var(--weight-display-medium);
-  line-height: var(--line-display);
   text-transform: uppercase;
   color: var(--content-primary);
-  font-family: var(--font-display);
+  line-height: var(--line-display);
 }
 
-/* SECTION 2: Formulário / Resultado */
-.section-sort {
+/* Section Formulário / Resultado */
+.section-sort,
+.section-result {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
 }
 
+.form-section,
+.result-section {
+  width: 100%;
+}
+
+.form-header,
+.result-header {
+  text-align: center;
+}
+
 .form-header h2,
-.result-header h2 {
+.result-title {
   font-size: var(--text-label-medium);
-  font-weight: var(--weight-label);
   color: var(--content-primary);
   text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 0.75rem;
 }
 
 .form-header p,
 .result-label {
   font-size: var(--text-paragraph-medium);
   color: var(--content-secondary);
-  line-height: var(--line-body);
-  text-align: center;
 }
 
-.result-order {
-  font-weight: bold;
-  margin-right: 0.25rem;
-}
-
+/* Inputs */
 .form {
   display: flex;
   flex-direction: column;
@@ -85,54 +87,43 @@
 .form-inputs {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  flex-wrap: nowrap;
   gap: 0.75rem;
+  justify-content: center;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   align-items: center;
-  flex: 0 0 auto;
+  gap: 0.25rem;
 }
 
 .input-group label {
   font-size: var(--text-label-small);
-  font-weight: var(--weight-label);
-  color: var(--content-secondary);
   text-transform: uppercase;
-  text-align: center;
+  color: var(--content-secondary);
 }
 
 .input-group input {
   background-color: var(--background-tertiary);
   border: none;
   border-radius: 0.5rem;
-  padding: 1rem;
   font-size: var(--text-display-small);
-  font-weight: var(--weight-display-small);
   font-family: var(--font-display);
-  text-transform: uppercase;
   color: var(--content-primary);
   width: 5.375rem;
   height: 3.5rem;
   text-align: center;
 }
 
-.input-group input:focus {
-  outline: 2px solid var(--content-brand);
-}
-
+/* Toggle */
 .toggle {
   display: flex;
+  justify-content: center;
   align-items: center;
   font-size: var(--text-paragraph-small);
   color: var(--content-primary);
-  margin-top: 1.5rem;
   gap: 0.5rem;
-  justify-content: center;
 }
 
 .toggle-label {
@@ -151,113 +142,144 @@
   width: 32px;
   height: 20px;
   background-image: url("../assets/icons/toggle_state_default.svg");
-  background-repeat: no-repeat;
-  background-position: center;
   background-size: contain;
-  transition: background-image 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.7;
-  transform: scale(0.95);
+  background-repeat: no-repeat;
 }
 
 .toggle-label input:checked + .toggle-icon {
   background-image: url("../assets/icons/toggle_state_active.svg");
-  opacity: 1;
-  transform: scale(1);
 }
 
-.btn-sort {
+/* Botão */
+.btn-sort,
+.btn-again,
+.btn-sort-again {
   background-color: var(--background-secondary);
-  border: none;
   color: var(--content-primary);
   font-size: var(--text-label-medium);
-  font-weight: var(--weight-label);
-  padding: 1rem 2rem;
+  border: none;
   border-radius: 8px;
-  cursor: pointer;
+  padding: 1rem 2rem;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
-  transition: background 0.3s ease;
-  width: 100%;
-  max-width: 100%;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+/* Resultados sorteados */
+.result-numbers {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: var(--content-brand);
+  font-size: var(--text-display-large);
+  font-weight: var(--weight-display-large);
+  font-family: var(--font-display);
   margin-top: 2rem;
 }
 
-.btn-sort:hover {
-  background-color: var(--background-tertiary);
-}
-
-.btn-sort img {
-  width: 20px;
-  height: auto;
-}
-
-/* SECTION 3: FAQ */
+/* FAQ */
 .section-faq {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 2rem;
 }
 
-.section-faq .faq-item {
+.faq-item {
   display: flex;
-  align-items: flex-start;
   gap: 1rem;
-  color: var(--content-primary);
+  align-items: flex-start;
 }
 
-.section-faq .faq-item strong {
+.faq-text strong {
   color: var(--content-brand);
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.25rem;
   font-size: var(--text-paragraph-large);
 }
 
-.section-faq .faq-item p {
-  color: var(--content-secondary);
+.faq-text p {
   font-size: var(--text-paragraph-medium);
+  color: var(--content-secondary);
   line-height: var(--line-body);
 }
 
-/* ---------------------------------------------------------- */
-/* Desktop (a partir de 1024px) */
-/* ---------------------------------------------------------- */
+/* ------------------ Desktop ------------------ */
 @media (min-width: 1024px) {
   .container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 4.75rem 8.375rem 9.5625rem;
-    max-width: 100%;
+    padding: 4rem 6rem;
+  }
+
+  .logo {
+    position: absolute;
+    top: 2.5rem;
+    left: 6rem;
+    width: 48px;
+  }
+
+  .main-wrapper {
+    display: grid;
+    grid-template-areas:
+      "title form"
+      "faq   form";
+    grid-template-columns: 1fr 1fr;
+    gap: 108px;
+    align-items: start;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 6rem;
   }
 
   .section-title {
-    flex: 1;
-    padding-right: 6.25rem;
-    align-items: flex-start;
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     text-align: left;
   }
 
-  .section-sort {
-    flex: 1;
-    max-width: 400px;
-    align-items: flex-start;
+  .subtitle {
+    text-align: left;
+    margin-bottom: 1rem;
   }
 
   .title {
     font-size: var(--text-display-large);
     font-weight: var(--weight-display-large);
-    margin-bottom: 3rem;
+    line-height: var(--line-display);
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--content-primary);
   }
 
-  .form,
-  .form-inputs {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+  .section-faq {
+    grid-area: faq;
+    margin-top: 3rem;
+  }
+
+  .faq {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 4rem;
+  }
+
+  .section-sort,
+  .section-result {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .form-section,
+  .result-section {
+    max-width: 400px;
+    width: 100%;
   }
 
   .form-header,
@@ -265,21 +287,139 @@
     text-align: left;
   }
 
-  .form,
-  .result-header {
+  .form-header h2,
+  .result-title {
+    font-size: var(--text-label-medium);
+    color: var(--content-primary);
+    text-transform: uppercase;
+  }
+
+  .form-header p,
+  .result-label {
+    font-size: var(--text-paragraph-medium);
+    color: var(--content-secondary);
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .form-inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .input-group label {
+    font-size: var(--text-label-small);
+    text-transform: uppercase;
+    color: var(--content-secondary);
+  }
+
+  .input-group input {
+    background-color: var(--background-tertiary);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: var(--text-display-small);
+    font-family: var(--font-display);
+    color: var(--content-primary);
+    width: 5.375rem;
+    height: 3.5rem;
+    text-align: center;
+  }
+
+  .toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: var(--text-paragraph-small);
+    color: var(--content-primary);
+  }
+
+  .toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+
+  .toggle-label input[type="checkbox"] {
+    display: none;
+  }
+
+  .toggle-icon {
+    display: inline-block;
+    width: 32px;
+    height: 20px;
+    background-image: url("../assets/icons/toggle_state_default.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .toggle-label input:checked + .toggle-icon {
+    background-image: url("../assets/icons/toggle_state_active.svg");
+  }
+
+  .btn-sort,
+  .btn-again {
+    background-color: var(--background-secondary);
+    color: var(--content-primary);
+    font-size: var(--text-label-medium);
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+  }
+
+  .result-numbers {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    color: var(--content-brand);
+    font-size: var(--text-display-large);
+    font-weight: var(--weight-display-large);
+    font-family: var(--font-display);
+    margin: 2rem 0;
+  }
+
+  .faq-item {
+    display: flex;
+    gap: 1rem;
     align-items: flex-start;
   }
 
-  .toggle,
-  .btn-sort {
-    flex-basis: 100%;
-    margin-top: 1rem;
+  .faq-text strong {
+    color: var(--content-brand);
+    font-size: var(--text-paragraph-large);
   }
 
-  .section-faq {
-    position: absolute;
-    bottom: 4rem;
-    left: 8.375rem;
-    right: 50%;
+  .faq-text p {
+    font-size: var(--text-paragraph-medium);
+    color: var(--content-secondary);
+    line-height: var(--line-body);
   }
 }
+
+
