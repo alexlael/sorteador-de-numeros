@@ -9,29 +9,42 @@ const sectionSort = document.querySelector(".section-sort");
 const sectionResult = document.querySelector(".section-result");
 const backButton = document.querySelector(".btn-sort-again");
 
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 // pegando o submit do form
 form.addEventListener("submit", function (event) {
   event.preventDefault(); // previne o comportamento padrão do form (recarregar a página)
   // pegando os valores dos inputs
 
-  const quantidade = parseInt(qntNumsInput.value);
-  const min = parseInt(minNumInput.value);
-  const max = parseInt(maxNumInput.value);
+  const quantidade = qntNumsInput.valueAsNumber;
+  const min = minNumInput.valueAsNumber;
+  const max = maxNumInput.valueAsNumber;
   let randomNumbers = [];
 
-  function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  let contador = 0;
-  while (contador <= quantidade - 1) {
+  // Função que preenche o array até ter exatamente `quantidade` valores
+function loopNumbers() {
+  while (randomNumbers.length < quantidade) {
     randomNumbers.push(getRandomIntInclusive(min, max));
-    console.log(randomNumbers);
-    contador++;
   }
-  console.log(randomNumbers);
+}
+
+// Primeiro preenche o array
+loopNumbers();
+
+if (noRepeatInput.checked) {
+  // Cria o Set e continua gerando números enquanto faltar
+  const uniqueNumbers = new Set(randomNumbers);
+  while (uniqueNumbers.size < quantidade) {
+    uniqueNumbers.add(getRandomIntInclusive(min, max));
+  }
+  randomNumbers = [...uniqueNumbers];
+}
+
+console.log(...randomNumbers);
 
   //escondendo a section do formulário inicial
   sectionSort.classList.add("hidden");
