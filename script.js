@@ -26,28 +26,39 @@ form.addEventListener("submit", function (event) {
   let randomNumbers = [];
 
   // Função que preenche o array até ter exatamente `quantidade` valores
-function loopNumbers() {
-  while (randomNumbers.length < quantidade) {
-    randomNumbers.push(getRandomIntInclusive(min, max));
+  function loopNumbers() {
+    while (randomNumbers.length < quantidade) {
+      randomNumbers.push(getRandomIntInclusive(min, max));
+    }
   }
-}
 
-// Primeiro preenche o array
-loopNumbers();
+  // Primeiro preenche o array
+  loopNumbers();
 
-if (noRepeatInput.checked) {
-  // Cria o Set e continua gerando números enquanto faltar
-  const uniqueNumbers = new Set(randomNumbers);
-  while (uniqueNumbers.size < quantidade) {
-    uniqueNumbers.add(getRandomIntInclusive(min, max));
+  if (noRepeatInput.checked) {
+    // Cria o Set e continua gerando números enquanto faltar
+    const uniqueNumbers = new Set(randomNumbers);
+    while (uniqueNumbers.size < quantidade) {
+      uniqueNumbers.add(getRandomIntInclusive(min, max));
+    }
+    randomNumbers = [...uniqueNumbers];
   }
-  randomNumbers = [...uniqueNumbers];
-}
 
-console.log(...randomNumbers);
+  console.log(...randomNumbers);
 
   //escondendo a section do formulário inicial
   sectionSort.classList.add("hidden");
+
+  // mostrando os números gerados na pagina
+  const resultContainer = document.querySelector(".result-numbers");
+  resultContainer.innerHTML = ""; // Limpa os números anteriores
+  // Adicionando os números ao container
+  randomNumbers.forEach((number) => {
+    const numberElement = document.createElement("span");
+    numberElement.classList.add("number-item");
+    numberElement.innerText = number;
+    resultContainer.appendChild(numberElement);
+  });
 
   // mostrando a section do resultado
   sectionResult.classList.remove("hidden");
