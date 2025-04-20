@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/home.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500;8..144,700&family=Roboto+Mono:wght@700&family=Sora:wght@700;800&display=swap"
       rel="stylesheet"
@@ -12,18 +13,21 @@
   </head>
   <body>
     <main class="container">
-      <!-- Logo fixa no topo -->
-      <img src="./assets/logo.svg" alt="Logo Numbers" class="logo" />
+      <!-- Logo com texto -->
+      <div class="logo">
+        <img src="./assets/logo.svg" alt="Logo Numbers" />
+        <span class="logo-text">NUMBERS</span>
+      </div>
 
-      <!-- Caixa central com conteúdo alinhado -->
+      <!-- Conteúdo principal -->
       <div class="main-wrapper">
-        <!-- Section 1: Título -->
+        <!-- Título -->
         <section class="section-title">
           <span class="subtitle">ONLINE – GRATUITO</span>
           <h1 class="title">SORTEADOR<br />DE NÚMEROS</h1>
         </section>
 
-        <!-- Section 2: Formulário -->
+        <!-- Formulário -->
         <section class="section-sort">
           <div class="form-section">
             <div class="form-header">
@@ -38,42 +42,48 @@
               <div class="form-inputs">
                 <div class="input-group">
                   <label for="amount">NÚMEROS</label>
-                  <input
-                    type="number"
-                    id="amount"
-                    name="amount"
-                    min="1"
-                    value="1"
-                    required
-                  />
+                  <div class="input-wrapper">
+                    <input
+                      type="number"
+                      id="amount"
+                      name="amount"
+                      min="1"
+                      value="5"
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div class="input-group">
                   <label for="min">DE</label>
-                  <input
-                    type="number"
-                    id="min"
-                    name="min"
-                    value="0"
-                    required
-                  />
+                  <div class="input-wrapper">
+                    <input
+                      type="number"
+                      id="min"
+                      name="min"
+                      value="0"
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div class="input-group">
                   <label for="max">ATÉ</label>
-                  <input
-                    type="number"
-                    id="max"
-                    name="max"
-                    value="10"
-                    required
-                  />
+                  <div class="input-wrapper">
+                    <input
+                      type="number"
+                      id="max"
+                      name="max"
+                      value="50"
+                      required
+                    />
+                  </div>
                 </div>
               </div>
 
               <div class="toggle">
                 <label for="no-repeat" class="toggle-label">
-                    <input type="checkbox" id="no-repeat" name="no-repeat" checked />
+                  <input type="checkbox" id="no-repeat" name="no-repeat" checked />
                   <span class="toggle-icon" aria-hidden="true"></span>
                   Não repetir número
                 </label>
@@ -92,7 +102,7 @@
           </div>
         </section>
 
-        <!-- Section 3: Resultado -->
+        <!-- Resultado -->
         <section class="section-result hidden">
           <div class="result-header">
             <h2 class="result-title">RESULTADO DO SORTEIO</h2>
@@ -100,8 +110,7 @@
               <span class="result-order">1º</span> RESULTADO
             </p>
             <div class="result-numbers">
-              <!-- Números sorteados serão injetados aqui via JS -->
-               <span>O resultado vai aparecer aqui</span>
+              <span>O resultado vai aparecer aqui</span>
             </div>
             <button class="btn-sort-again">
               SORTEAR NOVAMENTE
@@ -115,7 +124,7 @@
           </div>
         </section>
 
-        <!-- Section 4: FAQ -->
+        <!-- FAQ -->
         <section class="section-faq">
           <div class="faq">
             <div class="faq-item">
@@ -153,6 +162,7 @@
         </section>
       </div>
     </main>
+
     <script src="./script.js" defer></script>
   </body>
 </html>

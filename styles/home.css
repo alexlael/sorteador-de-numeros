@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------- */
-/* Estilos base: Mobile First (iPhone 15 ~390px) */
+/* Estilos base: Mobile First (iPhone 15 ~390px)              */
 /* ---------------------------------------------------------- */
 
 .container {
@@ -16,14 +16,31 @@
   gap: 2.5rem;
 }
 
+/* Logo + texto */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 0 auto 1rem;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+}
+
+.logo-text {
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--content-primary);
+  letter-spacing: 1px;
+}
+
 /* Section Título */
 .section-title {
   text-align: center;
-}
-
-.logo {
-  width: 48px;
-  margin: 0 auto 1rem;
 }
 
 .subtitle {
@@ -55,6 +72,7 @@
 .form-section,
 .result-section {
   width: 100%;
+  max-width: 400px;
 }
 
 .form-header,
@@ -75,7 +93,6 @@
   color: var(--content-secondary);
 }
 
-/* Inputs */
 .form {
   display: flex;
   flex-direction: column;
@@ -89,6 +106,8 @@
   flex-direction: row;
   gap: 0.75rem;
   justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .input-group {
@@ -96,6 +115,8 @@
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
+  width: 6.5rem;
+  flex: 0 0 auto;
 }
 
 .input-group label {
@@ -104,16 +125,33 @@
   color: var(--content-secondary);
 }
 
+.input-wrapper {
+  padding: 2px;
+  border-radius: 12px;
+  background: transparent;
+  transition: background 0.25s ease;
+  width: 100%;
+}
+
+.input-wrapper:hover,
+.input-wrapper:has(input:focus),
+.input-wrapper.focused {
+  background: var(--gradient-border);
+}
+
 .input-group input {
-  background-color: var(--background-tertiary);
-  border: none;
-  border-radius: 0.5rem;
-  font-size: var(--text-display-small);
-  font-family: var(--font-display);
+  all: unset;
+  background-color: var(--background-secondary);
   color: var(--content-primary);
-  width: 5.375rem;
+  font-size: 1.5rem;
+  font-weight: var(--weight-display-small);
+  font-family: var(--font-display);
+  width: 100%;
   height: 3.5rem;
   text-align: center;
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
 }
 
 /* Toggle */
@@ -150,27 +188,32 @@
   background-image: url("../assets/icons/toggle_state_active.svg");
 }
 
-/* Botão */
+/* Botões */
 .btn-sort,
-.btn-again,
 .btn-sort-again {
   background-color: var(--background-secondary);
   color: var(--content-primary);
   font-size: var(--text-label-medium);
+  font-weight: bold;
+  font-family: var(--font-body);
+  text-transform: uppercase;
   border: none;
-  border-radius: 8px;
-  padding: 1rem 2rem;
+  border-radius: 12px;
   width: 100%;
   max-width: 100%;
+  height: 64px;
+  padding: 1rem 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   margin-top: 2rem;
   cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
-/* Resultados sorteados */
+/* Resultados */
 .result-numbers {
   display: flex;
   gap: 2rem;
@@ -217,7 +260,7 @@
     position: absolute;
     top: 2.5rem;
     left: 6rem;
-    width: 48px;
+    margin: 0;
   }
 
   .main-wrapper {
@@ -251,8 +294,7 @@
     font-weight: var(--weight-display-large);
     line-height: var(--line-display);
     text-align: left;
-    text-transform: uppercase;
-    color: var(--content-primary);
+    margin: 0;
   }
 
   .section-faq {
@@ -261,9 +303,6 @@
   }
 
   .faq {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     padding-right: 4rem;
   }
 
@@ -287,19 +326,6 @@
     text-align: left;
   }
 
-  .form-header h2,
-  .result-title {
-    font-size: var(--text-label-medium);
-    color: var(--content-primary);
-    text-transform: uppercase;
-  }
-
-  .form-header p,
-  .result-label {
-    font-size: var(--text-paragraph-medium);
-    color: var(--content-secondary);
-  }
-
   .form {
     display: flex;
     flex-direction: column;
@@ -309,117 +335,31 @@
   }
 
   .form-inputs {
-    display: flex;
-    flex-direction: row;
     gap: 0.75rem;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .input-group {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  .input-group label {
-    font-size: var(--text-label-small);
-    text-transform: uppercase;
-    color: var(--content-secondary);
-  }
-
-  .input-group input {
-    background-color: var(--background-tertiary);
-    border: none;
-    border-radius: 0.5rem;
-    font-size: var(--text-display-small);
-    font-family: var(--font-display);
-    color: var(--content-primary);
-    width: 5.375rem;
-    height: 3.5rem;
-    text-align: center;
   }
 
   .toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     margin-top: 1rem;
-    font-size: var(--text-paragraph-small);
-    color: var(--content-primary);
-  }
-
-  .toggle-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-  }
-
-  .toggle-label input[type="checkbox"] {
-    display: none;
-  }
-
-  .toggle-icon {
-    display: inline-block;
-    width: 32px;
-    height: 20px;
-    background-image: url("../assets/icons/toggle_state_default.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  .toggle-label input:checked + .toggle-icon {
-    background-image: url("../assets/icons/toggle_state_active.svg");
   }
 
   .btn-sort,
-  .btn-again {
-    background-color: var(--background-secondary);
-    color: var(--content-primary);
-    font-size: var(--text-label-medium);
-    border: none;
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
+  .btn-sort-again {
     margin-top: 1.5rem;
-    cursor: pointer;
   }
 
   .result-numbers {
-    display: flex;
-    gap: 2rem;
     justify-content: flex-start;
-    flex-wrap: wrap;
-    color: var(--content-brand);
-    font-size: var(--text-display-large);
-    font-weight: var(--weight-display-large);
-    font-family: var(--font-display);
     margin: 2rem 0;
   }
 
-  .faq-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .faq-text strong {
-    color: var(--content-brand);
-    font-size: var(--text-paragraph-large);
-  }
-
-  .faq-text p {
-    font-size: var(--text-paragraph-medium);
-    color: var(--content-secondary);
-    line-height: var(--line-body);
+  .btn-sort:hover,
+  .btn-sort-again:hover {
+    background-color: var(--background-secondary);
   }
 }
-
-
