@@ -16,7 +16,7 @@
   gap: 2.5rem;
 }
 
-/* Logo + texto */
+/* Logo com texto */
 .logo {
   display: flex;
   align-items: center;
@@ -213,17 +213,57 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* Resultados */
+.btn-sort:hover,
+.btn-sort-again:hover {
+  background-color: var(--background-secondary);
+}
+
+/* Resultado do sorteio */
 .result-numbers {
   display: flex;
   gap: 2rem;
   justify-content: center;
   flex-wrap: wrap;
-  color: var(--content-brand);
-  font-size: var(--text-display-large);
-  font-weight: var(--weight-display-large);
-  font-family: var(--font-display);
   margin-top: 2rem;
+}
+
+/* Estilo e animação para números sorteados */
+.number-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--content-brand);
+  color: var(--background-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-display-small);
+  font-weight: var(--weight-display-large);
+  width: 64px;
+  height: 64px;
+  margin: 0.25rem;
+  border-radius: 16px;
+  animation: bounceInMorph 0.6s ease-out forwards;
+}
+
+/* Animação morph com rotação */
+@keyframes bounceInMorph {
+  0% {
+    transform: rotate(0deg) scale(0);
+    border-radius: 50%;
+    opacity: 0;
+  }
+  30% {
+    transform: rotate(180deg) scale(1.3);
+    border-radius: 30% 70% 50% 50% / 50% 50% 70% 30%;
+    opacity: 1;
+  }
+  60% {
+    transform: rotate(360deg) scale(1);
+    border-radius: 20% 80% 40% 60% / 60% 40% 70% 30%;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 16px;
+  }
 }
 
 /* FAQ */
@@ -356,10 +396,5 @@
   .result-numbers {
     justify-content: flex-start;
     margin: 2rem 0;
-  }
-
-  .btn-sort:hover,
-  .btn-sort-again:hover {
-    background-color: var(--background-secondary);
   }
 }
