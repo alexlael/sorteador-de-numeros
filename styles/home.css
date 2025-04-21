@@ -16,7 +16,6 @@
   gap: 2.5rem;
 }
 
-/* Logo com texto */
 .logo {
   display: flex;
   align-items: center;
@@ -38,7 +37,6 @@
   letter-spacing: 1px;
 }
 
-/* Título */
 .section-title {
   text-align: center;
 }
@@ -60,7 +58,6 @@
   line-height: var(--line-display);
 }
 
-/* Formulário */
 .section-sort,
 .section-result {
   display: flex;
@@ -188,7 +185,7 @@
   background-image: url("../assets/icons/toggle_state_active.svg");
 }
 
-/* Botões com borda gradiente no hover */
+/* ------------------------ BOTÕES ------------------------ */
 .btn-sort,
 .btn-sort-again {
   position: relative;
@@ -222,17 +219,23 @@
   inset: 0;
   border-radius: 12px;
   padding: 2px;
-  background: var(--gradient-border);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(
+    270deg,
+    #77c0af,
+    #d1dc97,
+    #e9a9b3,
+    #d586e0,
+    #91a1fa,
+    #77c0af
+  );
+  background-size: 300% 300%;
+  animation: none;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: -1;
 }
 
@@ -241,6 +244,16 @@
 .btn-sort-again:hover::before,
 .btn-sort-again:focus-visible::before {
   opacity: 1;
+  animation: borderFlow 2s linear infinite alternate;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 /* Resultado */
@@ -268,7 +281,6 @@
   animation: bounceInMorph 0.6s ease-out forwards;
 }
 
-/* Animação */
 @keyframes bounceInMorph {
   0% {
     transform: rotate(0deg) scale(0);
@@ -421,4 +433,36 @@
     justify-content: flex-start;
     margin: 2rem 0;
   }
+}
+/* Animação do arrow indo pra frente e voltando */
+@keyframes wiggleArrow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Animação de rotação contínua */
+@keyframes spinReload {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Aplica no ícone do botão sortear */
+.btn-sort:hover .icon-arrow {
+  animation: wiggleArrow 0.6s ease-in-out infinite;
+}
+
+/* Aplica no ícone do botão sortear novamente */
+.btn-sort-again:hover .icon-reload {
+  animation: spinReload 1s linear infinite;
 }
