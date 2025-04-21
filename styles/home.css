@@ -72,20 +72,17 @@
   max-width: 400px;
 }
 
-.form-header,
-.result-header {
+.form-header {
   text-align: center;
 }
 
-.form-header h2,
-.result-title {
-  font-size: var(--text-label-medium);
+.form-header h2 {
+  font-size: var(--text-label-large);
   color: var(--content-primary);
   text-transform: uppercase;
 }
 
-.form-header p,
-.result-label {
+.form-header p {
   font-size: var(--text-paragraph-medium);
   color: var(--content-secondary);
 }
@@ -114,12 +111,19 @@
   gap: 0.25rem;
   width: 6.5rem;
   flex: 0 0 auto;
+  text-align: center;
 }
 
 .input-group label {
-  font-size: var(--text-label-small);
+  font-size: var(--text-label-medium);
   text-transform: uppercase;
   color: var(--content-secondary);
+  transition: color 0.3s ease;
+}
+
+.input-group:has(input:hover) label,
+.input-group:has(input:focus) label {
+  color: var(--content-brand);
 }
 
 .input-wrapper {
@@ -185,7 +189,7 @@
   background-image: url("../assets/icons/toggle_state_active.svg");
 }
 
-/* ------------------------ BOTÕES ------------------------ */
+/* Botões */
 .btn-sort,
 .btn-sort-again {
   position: relative;
@@ -230,8 +234,12 @@
   );
   background-size: 300% 300%;
   animation: none;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   opacity: 0;
@@ -247,6 +255,7 @@
   animation: borderFlow 2s linear infinite alternate;
 }
 
+/* Animações */
 @keyframes borderFlow {
   0% {
     background-position: 0% 50%;
@@ -254,6 +263,35 @@
   100% {
     background-position: 200% 50%;
   }
+}
+
+@keyframes wiggleArrow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spinReload {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-sort:hover .icon-arrow {
+  animation: wiggleArrow 0.6s ease-in-out infinite;
+}
+
+.btn-sort-again:hover .icon-reload {
+  animation: spinReload 1s linear infinite;
 }
 
 /* Resultado */
@@ -345,7 +383,7 @@
       "title form"
       "faq   form";
     grid-template-columns: 1fr 1fr;
-    gap: 108px;
+    gap: 0.01px; /* 👈 Ajustado aqui */
     align-items: start;
     max-width: 1440px;
     margin: 0 auto;
@@ -417,7 +455,8 @@
   }
 
   .input-group {
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
   .toggle {
@@ -433,36 +472,4 @@
     justify-content: flex-start;
     margin: 2rem 0;
   }
-}
-/* Animação do arrow indo pra frente e voltando */
-@keyframes wiggleArrow {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(6px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Animação de rotação contínua */
-@keyframes spinReload {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Aplica no ícone do botão sortear */
-.btn-sort:hover .icon-arrow {
-  animation: wiggleArrow 0.6s ease-in-out infinite;
-}
-
-/* Aplica no ícone do botão sortear novamente */
-.btn-sort-again:hover .icon-reload {
-  animation: spinReload 1s linear infinite;
 }
