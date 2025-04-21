@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------- */
-/* Estilos base: Mobile First (iPhone 15 ~390px)              */
+/* Estilos base: Mobile First                                 */
 /* ---------------------------------------------------------- */
 
 .container {
@@ -38,7 +38,7 @@
   letter-spacing: 1px;
 }
 
-/* Section Título */
+/* Título */
 .section-title {
   text-align: center;
 }
@@ -60,7 +60,7 @@
   line-height: var(--line-display);
 }
 
-/* Section Formulário / Resultado */
+/* Formulário */
 .section-sort,
 .section-result {
   display: flex;
@@ -188,21 +188,22 @@
   background-image: url("../assets/icons/toggle_state_active.svg");
 }
 
-/* Botões */
+/* Botões com borda gradiente no hover */
 .btn-sort,
 .btn-sort-again {
-  background-color: var(--background-secondary);
-  color: var(--content-primary);
+  position: relative;
   font-size: var(--text-label-medium);
   font-weight: bold;
   font-family: var(--font-body);
   text-transform: uppercase;
+  color: var(--content-primary);
+  background-color: var(--background-secondary);
   border: none;
   border-radius: 12px;
+  padding: 1rem 2.5rem;
+  height: 64px;
   width: 100%;
   max-width: 100%;
-  height: 64px;
-  padding: 1rem 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,14 +212,38 @@
   cursor: pointer;
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
+  z-index: 1;
 }
 
-.btn-sort:hover,
-.btn-sort-again:hover {
-  background-color: var(--background-secondary);
+.btn-sort::before,
+.btn-sort-again::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: var(--gradient-border);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: -1;
 }
 
-/* Resultado do sorteio */
+.btn-sort:hover::before,
+.btn-sort:focus-visible::before,
+.btn-sort-again:hover::before,
+.btn-sort-again:focus-visible::before {
+  opacity: 1;
+}
+
+/* Resultado */
 .result-numbers {
   display: flex;
   gap: 2rem;
@@ -227,7 +252,6 @@
   margin-top: 2rem;
 }
 
-/* Estilo e animação para números sorteados */
 .number-item {
   display: inline-flex;
   justify-content: center;
@@ -244,7 +268,7 @@
   animation: bounceInMorph 0.6s ease-out forwards;
 }
 
-/* Animação morph com rotação */
+/* Animação */
 @keyframes bounceInMorph {
   0% {
     transform: rotate(0deg) scale(0);
@@ -257,7 +281,7 @@
     opacity: 1;
   }
   60% {
-    transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1.05);
     border-radius: 20% 80% 40% 60% / 60% 40% 70% 30%;
   }
   100% {
