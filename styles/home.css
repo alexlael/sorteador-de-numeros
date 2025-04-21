@@ -367,6 +367,10 @@
 /* ------------------ Desktop ------------------ */
 @media (min-width: 1024px) {
   .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
     padding: 4rem 6rem;
   }
 
