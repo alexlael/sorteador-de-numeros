@@ -16,9 +16,16 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+let contadorSorteios = 0;
+
 // Submissão do formulário
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+
+  // incrementa o contador e atualiza o texto no HTML
+  contadorSorteios++;
+  const resultOrderSpan = document.querySelector(".result-order");
+  resultOrderSpan.innerText = `${contadorSorteios}º`;
 
   const quantidade = qntNumsInput.valueAsNumber;
   const min = minNumInput.valueAsNumber;
