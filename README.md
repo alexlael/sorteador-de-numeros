@@ -48,7 +48,8 @@ Usei como referência o template disponível no Figma:
 │     └─ toggle_state_active.svg
 ├─ styles/
 │  ├─ global.css
-│  └─ home.css
+│  ├─ home.css
+│  └─ index.css
 ├─ script.js
 ├─ index.html
 └─ README.md
