@@ -378,7 +378,6 @@
     position: absolute;
     top: 2.5rem;
     left: 6rem;
-    margin: 0;
   }
 
   .main-wrapper {
@@ -403,8 +402,13 @@
   }
 
   .subtitle {
-    text-align: left;
-    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-overline);
+    font-weight: var(--weight-overline);
+    line-height: var(--line-overline);
+    color: var(--content-secondary);
+    text-transform: uppercase;
+    margin-bottom: .2rem;
   }
 
   .title {
